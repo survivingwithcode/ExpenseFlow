@@ -16,10 +16,16 @@ class UsersTable
             ->columns([
                 TextColumn::make('name')->sortable()->searchable(),
                 TextColumn::make('email')->sortable()->searchable(),
+                TextColumn::make('pivot.role')
+    ->label('Role')
+    ->badge()
+    ->sortable(),
+
             ])
             ->filters([
                 //
             ])
+            
             ->recordActions([
                 EditAction::make(),
             ])

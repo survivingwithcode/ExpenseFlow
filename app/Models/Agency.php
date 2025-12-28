@@ -26,7 +26,9 @@ class Agency extends Model
     // Users in this agency
 public function users()
 {
-    return $this->belongsToMany(User::class, 'agency_user');
+    return $this->belongsToMany(User::class)
+        ->withPivot('role')
+        ->withTimestamps();
 }
 
 

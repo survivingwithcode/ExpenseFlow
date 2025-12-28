@@ -64,9 +64,16 @@ public function invoices()
     return $this->hasMany(Invoice::class, 'created_by');
 }
 
+ public function ownedAgencies()
+    {
+        return $this->hasMany(Agency::class, 'owner_id');
+    }
+
 public function agencies()
 {
-    return $this->belongsToMany(Agency::class, 'agency_user');
+    return $this->belongsToMany(Agency::class)
+        ->withPivot('role')
+        ->withTimestamps() ;
 }
 
 
