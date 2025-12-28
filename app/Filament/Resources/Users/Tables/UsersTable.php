@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Users\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 
@@ -16,10 +17,7 @@ class UsersTable
             ->columns([
                 TextColumn::make('name')->sortable()->searchable(),
                 TextColumn::make('email')->sortable()->searchable(),
-                TextColumn::make('pivot.role')
-    ->label('Role')
-    ->badge()
-    ->sortable(),
+               
 
             ])
             ->filters([
@@ -28,6 +26,7 @@ class UsersTable
             
             ->recordActions([
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

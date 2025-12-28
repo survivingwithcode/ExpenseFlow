@@ -76,6 +76,14 @@ public function agencies()
         ->withTimestamps() ;
 }
 
+ public function hasAgencyRole(Agency $agency, string $role): bool
+    {
+        return $this->agencies()
+            ->where('agency_id', $agency->id)
+            ->wherePivot('role', $role)
+            ->exists();
+    }
+
 
 
 }

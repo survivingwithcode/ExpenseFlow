@@ -21,8 +21,15 @@ return new class extends Migration
               ->onDelete('cascade');
         $table->decimal('amount', 12, 2);         // Expense amount
         $table->text('description');              // Expense description
-        $table->boolean('is_billable')->default(false);  // Billable or not
-        $table->boolean('is_invoiced')->default(false);  
+         $table->enum('billable_status', [
+        'billable',
+        'non_billable',
+    ])->default('billable'); // Billable or not
+       $table->enum('status', [
+        'pending',
+        'approved',
+        'rejected',
+    ])->default('pending');
             $table->timestamps();
         });
     }

@@ -15,8 +15,13 @@ return new class extends Migration
             $table->id();
             $table->foreignId('agency_id')->constrained('agencies')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('role')->after('user_id');
+            $table->enum('role', [
+        'employee',
+        'freelancer',
+        'accountant',
+    ]);
             $table->timestamps();
+             $table->unique(['agency_id', 'user_id']);
         });
     }
 

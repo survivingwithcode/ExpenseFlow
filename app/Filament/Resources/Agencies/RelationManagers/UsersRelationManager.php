@@ -4,10 +4,8 @@ namespace App\Filament\Resources\Agencies\RelationManagers;
 
 use Filament\Forms\Components\Select;
 use Filament\Resources\RelationManagers\RelationManager;
-//use Filament\Tables\Actions\AttachAction;
 use Filament\Actions\AttachAction;
 use Filament\Actions\DetachAction;
-//use Filament\Tables\Actions\DetachAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
